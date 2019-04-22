@@ -1,3 +1,16 @@
+
+## ToDo App written in React
+
+This toDo app is written in React, using the latest functional classes, and the 
+new React hook - useState. All of the functions are on one js file. The code is written
+with Responsive features so that changes in Browser Size result in some changes in CSS.
+
+If you clone this from GitHub, you can run: npm install in the folder and it will install
+the dependencies
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
