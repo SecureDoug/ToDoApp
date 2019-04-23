@@ -1,16 +1,34 @@
 .app {
-  background: blue;
+  /* background: blue; */
+  background: url("./img/project3.jpg") no-repeat center/cover;
   padding: 30px;
   height: 100vh;
 }
 
 .todo-list {
-  background: #ddd;
+  background: peru;
   border-radius: 4px;
   padding: 10px;
+  margin: 20px;
+  max-width: 400px;
+  min-width: 240px;
+  float: left;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
 }
 
-.todo {
+.completed-list {
+  background: peru;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+  max-width: 400px;
+  float: left;
+  min-width: 240px;
+  min-height: 80px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.todo, .completedTodo {
   background: #fff;
   display: flex;
   align-items: center;
@@ -24,6 +42,36 @@
 
 .todoButton {
   font-size: 8px;
+}
+
+.label {
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.clickButton {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 60px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: peru;
+  border: 1px rgba(0, 0, 0, 0.5) solid;
+  font: 0.1rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
@@ -47,3 +95,7 @@
     padding: 6px;
   }
 }
+
+/* @mixin easeOut {
+  transition: all 0.5s ease-out;
+} */
