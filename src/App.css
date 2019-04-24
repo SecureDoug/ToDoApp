@@ -3,9 +3,10 @@
   background: url("./img/project3.jpg") no-repeat center/cover;
   padding: 30px;
   height: 100vh;
+  overflow: hidden;
 }
 
-.todo-list {
+.todo-hidden {
   background: peru;
   border-radius: 4px;
   padding: 10px;
@@ -14,9 +15,24 @@
   min-width: 240px;
   float: left;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
+  transform: translate3d(500%,0,0);
+  transition: all 0.5s ease-out;
 }
 
-.completed-list {
+.todo-show {
+  background: peru;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+  max-width: 400px;
+  min-width: 240px;
+  float: left;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
+  transform: translate3d(0,0,0);
+  transition: all 0.5s ease-out;
+}
+
+.completed-hidden {
   background: peru;
   border-radius: 4px;
   padding: 10px;
@@ -26,6 +42,22 @@
   min-width: 240px;
   min-height: 80px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
+  transform: translate3d(500%,0,0);
+  transition: all 0.5s ease-out;
+}
+
+.completed-show {
+  background: peru;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+  max-width: 400px;
+  float: left;
+  min-width: 240px;
+  min-height: 80px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 2px 2px 1px rgba(0, 0, 0, 0.15);
+  transform: translate3d(0,0,0);
+  transition: all 0.5s ease-out;  
 }
 
 .todo, .completedTodo {
@@ -38,6 +70,7 @@
   font-size: 12px;
   margin-bottom: 8px;
   border-radius: 3px;
+  position: relative;
 }
 
 .todoButton {
@@ -45,6 +78,7 @@
 }
 
 .label {
+  position: relative;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
@@ -75,7 +109,7 @@
 }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
-  .todo {
+  .todo-show {
     font-size: 12px;
     padding: 8px;
   }
@@ -83,19 +117,15 @@
 }
 
 @media screen and (max-width: 768px) {
-  .todo {
+  .todo-show {
     font-size: 12px;
     padding: 6px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .todo {
+  .todo-show {
     font-size: 12px;
     padding: 6px;
   }
 }
-
-/* @mixin easeOut {
-  transition: all 0.5s ease-out;
-} */

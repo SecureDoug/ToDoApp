@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
+
   const [todos, setTodosState] = useState([
     {
       toDoString: "Clean my desk",
@@ -24,6 +25,10 @@ function App() {
   const [completed, setCompletedState] = useState([]);
 
   const [isHidden, setHidden] = useState(true);
+
+  const [todoClassName, setTodoClassName] = useState('todo-hidden');
+
+  const [completedClassName, setCompletedClassName] = useState('completed-hidden');
 
   function Todo({ todo, index, completeTodo, removeTodo }) {
     return (
@@ -84,8 +89,6 @@ function App() {
 
   const completeTodo = index => {
     const todosArray = [...todos];
-    const thisString = todosArray[index].toDoString;
-    console.log('thisString: ' + thisString);
     todosArray[index].isCompleted = true;
     const completedArray = [...completed, todosArray[index]];
     setCompletedState(completedArray);
@@ -96,28 +99,36 @@ function App() {
   const toggleHidden = () => {
     if (isHidden === true) {
       setHidden(false);
+      setTodoClassName('todo-show');
+      setCompletedClassName('completed-show');
     } else {
       setHidden(true);
+      setTodoClassName('todo-hidden');
+      setCompletedClassName('completed-hidden');
     }
   }
+
+
 
   return (
     <div className="app">
       <div className="clickButton noselect" onClick={toggleHidden}>Todos</div>
-      {isHidden ? null : <div className="todo-list">
+      <div className={todoClassName}>
         <h3 className="label noselect">ToDo List</h3>
         {todos.map((todo, index) => (
           <Todo className="todo" key={index} index={index} todo={todo} completeTodo={completeTodo} removeTodo={removeTodo} />
         ))}
         <Todos addTodo={addTodo} />
-      </div>}
-      {isHidden ? null : <div className="completed-list">
+      </div>
+      <div className={completedClassName}>
         <h3 className="label noselect">Completed</h3>
-        {completed.map((todo, index) => (
-          <CompletedTodo className="completedTodo" key={index} index={index} todo={todo} completeTodo={completeTodo} removeCompletedTodo={removeCompetedTodo} />
-        ))}
-      </div>}
-    </div>
+        {
+          completed.map((todo, index) => (
+            <CompletedTodo className="completedTodo" key={index} index={index} todo={todo} completeTodo={completeTodo} removeCompletedTodo={removeCompetedTodo} />
+          ))
+        }
+      </div >
+    </div >
   );
 }
 
